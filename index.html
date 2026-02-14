@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J ♥ S • Valentine 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Satisfy&family=Cutive+Mono&family=Special+Elite&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cherry-red: #c41e3a;
+            --rose-pink: #ff6b9d;
+            --blush-pink: #ffc0cb;
+            --cream-white: #fff5ee;
+            --vintage-beige: #f4e4d7;
+            --deep-burgundy: #800020;
+            --soft-coral: #ff9999;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cutive Mono', monospace;
+            background: var(--vintage-beige);
+            color: var(--deep-burgundy);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.4;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 50%,
+                rgba(0, 0, 0, 0.02) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10000;
+            background: var(--cherry-red);
+            color: white;
+            border: 4px solid var(--deep-burgundy);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 
+                4px 4px 0px var(--deep-burgundy),
+                0 8px 20px rgba(128, 0, 32, 0.4);
+            transition: all 0.3s ease;
+            font-size: 2rem;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            box-shadow: 
+                6px 6px 0px var(--deep-burgundy),
+                0 12px 30px rgba(128, 0, 32, 0.5);
+        }
+
+        .music-control:active {
+            transform: scale(0.95);
+        }
+
+        .music-control.playing {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 
+                    4px 4px 0px var(--deep-burgundy),
+                    0 8px 20px rgba(128, 0, 32, 0.4);
+            }
+            50% {
+                box-shadow: 
+                    4px 4px 0px var(--deep-burgundy),
+                    0 8px 20px rgba(255, 107, 157, 0.6);
+            }
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: 
+                radial-gradient(circle at 20% 80%, var(--rose-pink) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, var(--blush-pink) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, var(--soft-coral) 0%, transparent 70%),
+                var(--vintage-beige);
+            overflow: hidden;
+        }
+
+        .heart-vintage {
+            position: absolute;
+            font-size: 3rem;
+            color: var(--cherry-red);
+            opacity: 0.15;
+            animation: vintageFloat 20s ease-in-out infinite;
+            filter: blur(1px);
+        }
+
+        .heart-vintage:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; font-size: 4rem; }
+        .heart-vintage:nth-child(2) { top: 60%; right: 10%; animation-delay: 5s; font-size: 3.5rem; }
+        .heart-vintage:nth-child(3) { bottom: 20%; left: 25%; animation-delay: 10s; font-size: 5rem; }
+        .heart-vintage:nth-child(4) { top: 30%; right: 30%; animation-delay: 15s; font-size: 3rem; }
+        .heart-vintage:nth-child(5) { bottom: 40%; right: 20%; animation-delay: 7s; font-size: 4.5rem; }
+        .heart-vintage:nth-child(6) { top: 70%; left: 40%; animation-delay: 12s; font-size: 3.2rem; }
+
+        @keyframes vintageFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            25% { transform: translateY(-20px) rotate(5deg) scale(1.05); }
+            50% { transform: translateY(-10px) rotate(-3deg) scale(0.95); }
+            75% { transform: translateY(-15px) rotate(4deg) scale(1.02); }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .polaroid-frame {
+            background: white;
+            padding: 2rem 2rem 4rem 2rem;
+            box-shadow: 
+                0 10px 30px rgba(128, 0, 32, 0.3),
+                inset 0 0 0 1px rgba(0,0,0,0.1);
+            transform: rotate(-1deg);
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'Mrs Saint Delafield', cursive;
+            font-size: clamp(5rem, 12vw, 10rem);
+            color: var(--cherry-red);
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 0px var(--rose-pink);
+            line-height: 1.2;
+            animation: heartbeat 2s ease-in-out infinite;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.05); }
+            20% { transform: scale(1); }
+        }
+
+        .date-stamp {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.2rem;
+            color: var(--deep-burgundy);
+            letter-spacing: 2px;
+            margin-top: 1rem;
+        }
+
+        .retro-button {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.3rem;
+            background: var(--cherry-red);
+            color: var(--cream-white);
+            border: 4px solid var(--deep-burgundy);
+            padding: 1.2rem 3rem;
+            margin-top: 2rem;
+            cursor: pointer;
+            box-shadow: 
+                6px 6px 0px var(--deep-burgundy),
+                0 10px 20px rgba(128, 0, 32, 0.3);
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .retro-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 
+                3px 3px 0px var(--deep-burgundy),
+                0 5px 15px rgba(128, 0, 32, 0.3);
+        }
+
+        .retro-button:active {
+            transform: translate(6px, 6px);
+            box-shadow: 0px 0px 0px var(--deep-burgundy);
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Mrs Saint Delafield', cursive;
+            font-size: clamp(3rem, 6vw, 5rem);
+            color: var(--cherry-red);
+            text-align: center;
+            margin-bottom: 4rem;
+            text-shadow: 2px 2px 0px var(--rose-pink);
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5rem 4rem;
+            margin: 5rem 0;
+            padding: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .polaroid-photo {
+            background: white;
+            padding: 1.2rem 1.2rem 4rem 1.2rem;
+            box-shadow: 
+                0 10px 30px rgba(128, 0, 32, 0.25),
+                inset 0 0 0 1px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .polaroid-photo:nth-child(1) { transform: rotate(-3deg); }
+        .polaroid-photo:nth-child(2) { transform: rotate(2deg); }
+        .polaroid-photo:nth-child(3) { transform: rotate(-2deg); }
+        .polaroid-photo:nth-child(4) { transform: rotate(3deg); }
+        .polaroid-photo:nth-child(5) { transform: rotate(-2deg); }
+        .polaroid-photo:nth-child(6) { transform: rotate(2deg); }
+
+        .polaroid-photo:hover {
+            transform: rotate(0deg) scale(1.08) translateY(-10px);
+            box-shadow: 0 20px 50px rgba(128, 0, 32, 0.4);
+            z-index: 10;
+        }
+
+        .polaroid-photo::before {
+            content: '♥';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 2.5rem;
+            color: var(--cherry-red);
+            background: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 3px solid var(--cherry-red);
+            box-shadow: 0 4px 10px rgba(128, 0, 32, 0.3);
+            transform: rotate(15deg);
+            z-index: 2;
+        }
+
+        .photo-frame {
+            width: 100%;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-caption {
+            font-family: 'Special Elite', monospace;
+            font-size: 1rem;
+            color: var(--deep-burgundy);
+            text-align: center;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .featured-photo-container {
+            max-width: 1100px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+            perspective: 1500px;
+        }
+
+        .featured-frame {
+            background: white;
+            padding: 2.5rem;
+            box-shadow: 
+                0 20px 60px rgba(128, 0, 32, 0.3),
+                inset 0 0 0 1px rgba(0,0,0,0.05);
+            transition: all 0.8s ease;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .featured-frame:hover {
+            transform: rotateY(180deg);
+        }
+
+        .featured-front,
+        .featured-back {
+            backface-visibility: hidden;
+            position: relative;
+        }
+
+        .featured-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: rotateY(180deg);
+            padding: 2.5rem;
+            background: white;
+        }
+
+        .featured-back::before {
+            content: '♥';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--cherry-red);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .featured-back::after {
+            content: '♥';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 3rem;
+            color: var(--cherry-red);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .featured-frame::before {
+            content: '♥';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 3rem;
+            color: var(--cherry-red);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .featured-frame::after {
+            content: '♥';
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 3rem;
+            color: var(--cherry-red);
+            opacity: 0.8;
+            z-index: 2;
+        }
+
+        .corner-heart-tl {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            color: var(--rose-pink);
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        .corner-heart-bl {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            font-size: 2.5rem;
+            color: var(--rose-pink);
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        .featured-photo,
+        .back-photo {
+            width: 100%;
+            background: white;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--vintage-beige);
+        }
+
+        .featured-photo img,
+        .back-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .featured-caption,
+        .back-caption {
+            font-family: 'Satisfy', cursive;
+            font-size: 2rem;
+            color: var(--deep-burgundy);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .love-letter {
+            background: var(--cream-white);
+            max-width: 800px;
+            margin: 6rem auto;
+            padding: 4rem 3rem;
+            border: 2px solid var(--deep-burgundy);
+            box-shadow: 
+                0 0 0 10px var(--vintage-beige),
+                0 0 0 12px var(--deep-burgundy),
+                0 20px 40px rgba(128, 0, 32, 0.3);
+            position: relative;
+        }
+
+        .love-letter::before {
+            content: '♥♥♥';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cherry-red);
+            color: white;
+            padding: 0.5rem 2rem;
+            font-size: 1.5rem;
+            letter-spacing: 1rem;
+        }
+
+        .letter-text {
+            font-family: 'Satisfy', cursive;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            line-height: 2.2;
+            color: var(--deep-burgundy);
+            text-align: center;
+        }
+
+        .letter-signature {
+            font-family: 'Mrs Saint Delafield', cursive;
+            font-size: 2.5rem;
+            color: var(--cherry-red);
+            text-align: right;
+            margin-top: 2rem;
+        }
+
+        footer {
+            background: var(--deep-burgundy);
+            color: var(--blush-pink);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            font-family: 'Special Elite', monospace;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
+
+        footer .heart-divider {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        .flying-heart {
+            position: fixed;
+            font-size: 2rem;
+            pointer-events: none;
+            z-index: 10000;
+            animation: flyAway 3s ease-out forwards;
+        }
+
+        .flying-lily {
+            position: fixed;
+            font-size: 2.5rem;
+            pointer-events: none;
+            z-index: 10000;
+            animation: lilyFloat 4s ease-out forwards;
+        }
+
+        @keyframes lilyFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-120vh) translateX(50px) rotate(180deg) scale(0.5);
+            }
+        }
+
+        @keyframes flyAway {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-150vh) rotate(360deg) scale(0.3);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            h1 {
+                font-size: 5rem;
+            }
+
+            .music-control {
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="scanlines"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="She & Him - I Thought I Saw Your Face Today (Official Lyric Video).mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-control playing" id="musicToggle" onclick="toggleMusic()">
+        🎵
+    </button>
+
+    <section class="hero">
+        <div class="heart-vintage">♥</div>
+        <div class="heart-vintage">♥</div>
+        <div class="heart-vintage">♥</div>
+        <div class="heart-vintage">♥</div>
+        <div class="heart-vintage">♥</div>
+        <div class="heart-vintage">♥</div>
+
+        <div class="hero-content">
+            <div class="polaroid-frame">
+                <h1><span style="font-family: 'Satisfy', cursive;">J</span> ♥ <span style="font-family: 'Satisfy', cursive;">S</span></h1>
+                <p class="date-stamp">Juni Busyuk</p>
+                <p class="date-stamp">FEBRUARY 14, 2026</p>
+            </div>
+            <button class="retro-button" onclick="spreadLove()">SEND LOVE ♥</button>
+        </div>
+    </section>
+
+    <section class="content">
+        <h2 class="section-title">Our Love Story</h2>
+
+        <div class="photo-gallery">
+            <div class="polaroid-photo">
+                <div class="photo-frame">
+                    <img src="poto1.jpeg" alt="Our Memory 1">
+                </div>
+                <p class="photo-caption">MEMORY #1</p>
+            </div>
+
+            <div class="polaroid-photo">
+                <div class="photo-frame">
+                    <img src="IMG_3926.png" alt="Our Memory 2">
+                </div>
+                <p class="photo-caption">MEMORY #2</p>
+            </div>
+
+            <div class="polaroid-photo">
+                <div class="photo-frame">
+                    <img src="IMG_4068.png" alt="Our Memory 3">
+                </div>
+                <p class="photo-caption">MEMORY #3</p>
+            </div>
+
+            <div class="polaroid-photo">
+                <div class="photo-frame">
+                    <img src="IMG_4149.png" alt="Our Memory 4">
+                </div>
+                <p class="photo-caption">MEMORY #4</p>
+            </div>
+
+            <div class="polaroid-photo">
+                <div class="photo-frame">
+                    <img src="IMG_4746.png" alt="Our Memory 5">
+                </div>
+                <p class="photo-caption">MEMORY #5</p>
+            </div>
+
+            <div class="polaroid-photo">
+                <div class="photo-frame">
+                    <img src="IMG_4240.png" alt="Our Memory 6">
+                </div>
+                <p class="photo-caption">MEMORY #6</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Our Special Moment</h2>
+
+        <div class="featured-photo-container">
+            <div class="featured-frame">
+                <div class="featured-front">
+                    <span class="corner-heart-tl">♥</span>
+                    <span class="corner-heart-bl">♥</span>
+                    <div class="featured-photo">
+                        <img src="poto2.jpeg" alt="Our Special Moment">
+                    </div>
+                    <p class="featured-caption">Forever in Love</p>
+                </div>
+
+                <div class="featured-back">
+                    <span class="corner-heart-tl">♥</span>
+                    <span class="corner-heart-bl">♥</span>
+                    <div class="back-photo">
+                        <img src="foto2.jpeg" alt="Our Secret Moment">
+                    </div>
+                    <p class="back-caption">Our Hidden Memory</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="love-letter">
+            <p class="letter-text">
+                Dear Juni,<br><br>
+                I hope you like this little surprise.<br>
+                I'm sorry we can't be together right now,<br>
+                and I don't know how long this distance will keep us apart.<br><br>
+                But I promise you,<br>
+                no matter how far,<br>
+                no matter how long,<br>
+                I will find my way back to you.<br><br>
+                Happy Valentine's Day,<br>
+                my sweetie pie.<br><br>
+                I love you, always and forever.
+            </p>
+            <p class="letter-signature">With all my love,<br><span style="font-family: 'Satisfy', cursive;">J</span> ♥ <span style="font-family: 'Satisfy', cursive;">S</span></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>MADE FOR JUNI BUSYUKKK</p>
+        <div class="heart-divider">♥ ♥ ♥</div>
+        <p style="font-size: 0.9rem; opacity: 0.8;">Valentine's Day 2026 • J ♥ S</p>
+    </footer>
+
+    <script>
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggle = document.getElementById('musicToggle');
+        let isPlaying = false;
+
+        window.addEventListener('load', function() {
+            playMusic();
+        });
+
+        document.addEventListener('click', function() {
+            if (!isPlaying) {
+                playMusic();
+            }
+        }, { once: true });
+
+        function playMusic() {
+            bgMusic.play()
+                .then(() => {
+                    isPlaying = true;
+                    musicToggle.classList.add('playing');
+                    musicToggle.textContent = '🎵';
+                })
+                .catch(err => {
+                    console.log('Autoplay blocked, waiting for user interaction');
+                    isPlaying = false;
+                    musicToggle.classList.remove('playing');
+                    musicToggle.textContent = '🔇';
+                });
+        }
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                isPlaying = false;
+                musicToggle.classList.remove('playing');
+                musicToggle.textContent = '🔇';
+            } else {
+                playMusic();
+            }
+        }
+
+        function spreadLove() {
+            const hearts = ['♥', '💕', '💖', '💗', '💝', '💘'];
+            const colors = ['#c41e3a', '#ff6b9d', '#ffc0cb', '#ff9999'];
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'flying-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    heart.style.left = Math.random() * window.innerWidth + 'px';
+                    heart.style.top = window.innerHeight + 'px';
+                    heart.style.animationDelay = Math.random() * 0.5 + 's';
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 3000);
+                }, i * 100);
+            }
+        }
+
+        const polaroids = document.querySelectorAll('.polaroid-photo');
+        polaroids.forEach(polaroid => {
+            polaroid.addEventListener('mouseenter', function() {
+                const rect = this.getBoundingClientRect();
+                const lilies = ['🌸', '🌺', '🌼', '🌷'];
+                
+                for (let i = 0; i < 4; i++) {
+                    setTimeout(() => {
+                        const lily = document.createElement('div');
+                        lily.className = 'flying-lily';
+                        lily.textContent = lilies[Math.floor(Math.random() * lilies.length)];
+                        lily.style.left = (rect.left + rect.width / 2 + (Math.random() - 0.5) * 100) + 'px';
+                        lily.style.top = (rect.top + rect.height / 2) + 'px';
+                        
+                        document.body.appendChild(lily);
+                        setTimeout(() => lily.remove(), 4000);
+                    }, i * 150);
+                }
+            });
+            
+            polaroid.addEventListener('click', function() {
+                const rect = this.getBoundingClientRect();
+                const hearts = ['♥', '💕', '💖'];
+                
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'flying-heart';
+                        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                        heart.style.color = '#c41e3a';
+                        heart.style.left = (rect.left + rect.width / 2 + (Math.random() - 0.5) * 100) + 'px';
+                        heart.style.top = (rect.top + rect.height / 2) + 'px';
+                        
+                        document.body.appendChild(heart);
+                        setTimeout(() => heart.remove(), 3000);
+                    }, i * 100);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
